@@ -220,7 +220,7 @@ function selectAward(code) {
   payGuideDocxLink.href = payGuideUrl("docx", award);
   payGuideDocxLink.textContent = `${award.code} pay guide DOCX`;
 
-  awardHtmlFrame.src = awardHtmlUrl(award);
+  awardHtmlFrame.src = `/api/award-html?code=${encodeURIComponent(award.code)}`;
   payGuideFrame.src = payGuideUrl("pdf", award);
 
   document.querySelector("#viewerTitle").textContent = award.title;
