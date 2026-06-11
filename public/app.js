@@ -477,7 +477,9 @@ function handleAction(action) {
 function boot() {
   renderAwardResults();
   renderEmptyState();
-
+  
+  console.log("Awards loaded:", awardLibrary.length);
+  
   awardSearch.addEventListener("input", renderAwardResults);
   industryFilterButton.addEventListener("click", toggleIndustryFilter);
 
