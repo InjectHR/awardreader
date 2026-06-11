@@ -6,14 +6,16 @@
     <title>Award Assistant</title>
     <link rel="stylesheet" href="/styles.css">
   </head>
+
   <body>
     <header class="topbar">
       <div>
         <p class="eyebrow">Fair Work / FWC award library</p>
         <h1>Award Assistant</h1>
       </div>
+
       <div class="source-strip" aria-label="Official sources">
-        <a id="officialAwardLink" href="https://awards.fairwork.gov.au/MA000010.html" target="_blank" rel="noreferrer">Official award</a>
+        <a id="officialAwardLink" href="https://www.fairwork.gov.au/employment-conditions/awards/list-of-awards" target="_blank" rel="noreferrer">Official award</a>
         <a href="https://www.fairwork.gov.au/employment-conditions/awards/list-of-awards" target="_blank" rel="noreferrer">A-Z awards</a>
         <a href="https://www.fwc.gov.au/work-conditions/awards/modern-awards-pay-database" target="_blank" rel="noreferrer">MAPD extracts</a>
         <a href="https://developer.fwc.gov.au/" target="_blank" rel="noreferrer">FWC API</a>
@@ -33,19 +35,19 @@
           <h2>Current award</h2>
           <div class="meta-grid">
             <span>Award code</span>
-            <strong id="currentAwardCode">MA000010</strong>
+            <strong id="currentAwardCode">—</strong>
             <span>Status</span>
-            <strong id="currentAwardStatus">Official source indexed</strong>
+            <strong id="currentAwardStatus">No award selected</strong>
             <span>Use case</span>
-            <strong id="currentAwardUse">HR clause lookup</strong>
+            <strong id="currentAwardUse">Select an award from the list</strong>
           </div>
         </section>
 
         <section class="panel-section">
           <h2>Related tools</h2>
           <button class="soft-button" type="button" data-action="view-pay-guide">View pay guide</button>
-          <a id="payGuidePdfLink" class="soft-button link-button" href="https://calculate.fairwork.gov.au/Download/AwardSummary?awardCode=ma000010&fileType=pdf" target="_blank" rel="noreferrer">Pay guide PDF</a>
-          <a id="payGuideDocxLink" class="soft-button link-button" href="https://calculate.fairwork.gov.au/Download/AwardSummary?awardCode=ma000010&fileType=docx" target="_blank" rel="noreferrer">Pay guide DOCX</a>
+          <a id="payGuidePdfLink" class="soft-button link-button" href="https://www.fwc.gov.au/work-conditions/awards/modern-awards-pay-database" target="_blank" rel="noreferrer">Pay guide PDF</a>
+          <a id="payGuideDocxLink" class="soft-button link-button" href="https://www.fwc.gov.au/work-conditions/awards/modern-awards-pay-database" target="_blank" rel="noreferrer">Pay guide DOCX</a>
           <button class="soft-button" type="button" data-action="check-classifications">Check classifications</button>
           <button class="soft-button" type="button" data-action="check-pay-rates">Check pay rates</button>
           <button class="soft-button" type="button" data-action="compare-nes">Compare with NES</button>
@@ -56,8 +58,9 @@
         <div class="viewer-toolbar">
           <div>
             <p class="eyebrow">Embedded viewer</p>
-            <h2 id="viewerTitle">Manufacturing and Associated Industries and Occupations Award 2020</h2>
+            <h2 id="viewerTitle">Select an award to begin</h2>
           </div>
+
           <div class="tabs" role="tablist" aria-label="Viewer tabs">
             <button class="tab is-active" type="button" data-view="clauses">Clauses</button>
             <button class="tab" type="button" data-view="official">Award viewer</button>
@@ -69,14 +72,9 @@
         <div id="clauseView" class="viewer-content"></div>
 
         <div id="officialView" class="official-view" hidden>
-          <iframe
-            id="awardHtmlFrame"
-            title="Award HTML viewer"
-            src="/api/award-html?code=MA000010"
-            loading="lazy"
-          ></iframe>
+          <iframe id="awardHtmlFrame" title="Award HTML viewer" loading="lazy"></iframe>
           <p class="frame-note">
-            This is the official award HTML loaded through the app. Use the contents sidebar inside the viewer to jump through the award.
+            If the official award does not display here, use the Official award link above to open it in a new tab.
           </p>
         </div>
 
@@ -90,14 +88,9 @@
         </div>
 
         <div id="payGuideView" class="pay-guide-view" hidden>
-          <iframe
-            id="payGuideFrame"
-            title="Pay guide viewer"
-            src="/api/pay-guide?awardCode=MA000010"
-            loading="lazy"
-          ></iframe>
+          <iframe id="payGuideFrame" title="Pay guide viewer" loading="lazy"></iframe>
           <p class="frame-note">
-            If the PDF viewer does not load in your browser, use the pay guide PDF button in the sidebar.
+            If the PDF viewer does not load, use the pay guide PDF button in the sidebar.
           </p>
         </div>
       </section>
@@ -105,7 +98,7 @@
       <aside class="assistant-panel" aria-label="AI explanation panel">
         <section class="ask-box">
           <label class="field-label" for="questionInput">Ask the award</label>
-          <textarea id="questionInput" rows="3">annual leave clause</textarea>
+          <textarea id="questionInput" rows="3" placeholder="Ask a question after selecting an award"></textarea>
           <button id="askButton" class="primary-button" type="button">Ask</button>
         </section>
 
@@ -121,7 +114,7 @@
             <h2 id="answerTitle">Ready</h2>
           </div>
           <div id="answerBody" class="answer-body">
-            Search for the Manufacturing Award, then ask about the annual leave clause.
+            Select an award from the left, then ask a question.
           </div>
         </section>
 
