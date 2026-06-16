@@ -475,8 +475,10 @@ function handleAction(action) {
 }
 
 function boot() {
-  renderAwardResults();
   renderEmptyState();
+  renderAwardResults();
+
+  console.log("Awards loaded:", awardLibrary.length);
   
   console.log("Awards loaded:", awardLibrary.length);
   
