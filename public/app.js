@@ -476,20 +476,18 @@ function handleAction(action) {
 
 function boot() {
   renderEmptyState();
-  renderAwardResults();
+
+  if (!awardLibrary.length) {
+    awardResults.innerHTML = `
+      <p class="source-note">
+        No awards loaded. Check that <strong>awards.js</strong> is in the same folder as index.html and loads before app.js.
+      </p>
+    `;
+  } else {
+    renderAwardResults();
+  }
 
   console.log("Awards loaded:", awardLibrary.length);
-  
-  console.log("Awards loaded:", awardLibrary.length);
-  
-  awardSearch.addEventListener("input", renderAwardResults);
-  industryFilterButton.addEventListener("click", toggleIndustryFilter);
-
-  awardResults.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-award]");
-    if (!button) return;
-    selectAward(button.dataset.award);
-  });
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
